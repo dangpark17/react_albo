@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React from 'react';
+import './App.css';
+import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Table,Button,Container,Modal,ModalBody,ModalHeader,FormGroup,ModalFooter} from 'reactstrap';
+
+const data = [
+  {id:1,name: "daniel",apPat: "Perez"},
+  {id:2,name: "Alejandra",apPat: "Perez"},
+  {id:3,name: "Eduardo",apPat: "Perez"}
+  
+]; 
+
+class App extends React.Component {
+  state={
+    data: data
+  }
+  render(){
+    return (
+      <>
+        <Container>
+          <Button color="primary">Insertar</Button>
+          <br />
+          <br />
+          <Table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Apellido Paterno</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                (
+                  this.state.data.map((elemento)=>(
+                    <tr>
+                      <td>{elemento.id}</td>
+                      <td>{elemento.name}</td>
+                      <td>{elemento.apPat}</td>
+                      <td>
+                        <Button color="primary">Editar</Button>
+                        <Button color="danger">Eliminar</Button>
+                      </td>
+                    </tr>
+                  ))
+                )
+              }
+            </tbody>
+          </Table>
+        </Container>
+      </>
+    );
+  }  
 }
 
 export default App;
