@@ -4,11 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from "axios";
+import { ApolloProvider } from '@apollo/client/react';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { Helmet } from 'react-helmet';
+import {Route,Switch} from 'react-router-dom';
+import AppAppBar from '../src/views/AppAppBar'; 
+import AppFooter from '../src/views/AppFooter';
+import Home from '../src/render/Home';
+import SignUp from '../src/render/SignUp';
+
+
+const client = new ApolloClient({
+  uri: 'https://48p1r2roz4.sse.codesandbox.io',
+  cache: new InMemoryCache()
+});
+  
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ApolloProvider client={client}>
     <App />
-  </React.StrictMode>,
+  </ApolloProvider>,
   document.getElementById('root')
 );
 

@@ -5,6 +5,8 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table,Button,Container,Modal,ModalBody,ModalHeader,FormGroup,ModalFooter} from 'reactstrap';
 
+
+
 const data = [
   {id:1,name: "daniel",apPat: "Perez"},
   {id:2,name: "Alejandra",apPat: "Perez"},
@@ -20,7 +22,7 @@ class App extends React.Component {
     return (
       <>
         <Container>
-          <Button color="primary">Insertar</Button>
+          <Button color="success">Insertar Nuevo Registro</Button>
           <br />
           <br />
           <Table>
