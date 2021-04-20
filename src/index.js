@@ -7,11 +7,6 @@ import axios from "axios";
 import { ApolloProvider } from '@apollo/client/react';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { Helmet } from 'react-helmet';
-import {Route,Switch} from 'react-router-dom';
-import AppAppBar from '../src/views/AppAppBar'; 
-import AppFooter from '../src/views/AppFooter';
-import Home from '../src/render/Home';
-import SignUp from '../src/render/SignUp';
 
 
 const client = new ApolloClient({
@@ -19,13 +14,21 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
   
+class Index extends React.Component {
+  render() {
+      return (
+        <ApolloProvider client={client}>   
+          <Helmet>
+            <title>ALBO Examen</title>
+          </Helmet>
+          <App />          
+        </ApolloProvider>
+      );
+  }
+}
+const rootElement = document.getElementById('root');
+ReactDOM.render(<Index />, rootElement);
 
-ReactDOM.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
-  document.getElementById('root')
-);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

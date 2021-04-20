@@ -36,14 +36,15 @@ function ProductHero(props) {
             {/* Increase the network loading priority of the background image */}
             <img style={{display: 'none'}} src={backgroundImage} alt="Increase priority"/>
             <Typography color="inherit" align="center" variant="h2" marked="center">
-                Upgrade your Sundays
+                Peliculas de Estreno
             </Typography>
             <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
-                Enjoy secret offers up to -70% off the best luxury hotels every Sunday.
+                En Este componente se muestra la siguiente API Movie Database (IMDB Alternative)
+
             </Typography>
-            <Button color="secondary" variant="contained" size="large" className={classes.button} component="a" href="/home/signup">Register</Button>
+            <Button color="secondary" variant="contained" size="large" className={classes.button} component="a" href="https://rapidapi.com/rapidapi/api/movie-database-imdb-alternative?endpoint=apiendpoint_843d3708-42a9-4240-8a68-2ced0372c20f">Ver API</Button>
             <Typography variant="body2" color="inherit" className={classes.more}>
-                Discover the experience
+                La Mejor Experiencia
             </Typography>
         </ProductHeroLayout>
     );

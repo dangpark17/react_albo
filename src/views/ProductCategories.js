@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import axios from "axios";
 
 const styles = (theme) => ({
     root: {
@@ -86,58 +87,58 @@ const styles = (theme) => ({
 
 function ProductCategories(props){
     const { classes } = props;
+    const options = {
+        method: 'GET',
+        url: 'https://movie-database-imdb-alternative.p.rapidapi.com/',
+        params: {s: 'Avengers Endgame', page: '1', r: 'json'},
+        headers: {
+          'x-rapidapi-key': '9d53d6f30amsh53ebbeef7e54d0fp19015bjsne8a09df5cb4e',
+          'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
+        }
+      };
     const images = [
         {
-            url: 'https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&w=400&q=80',
-            title: 'Snorkeling',
+            url:"https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg",
+            title: 'Avengers: Endgame',
             width: '40%',
         },
         {
-            url: 'https://images.unsplash.com/photo-1531299204812-e6d44d9a185c?auto=format&fit=crop&w=400&q=80',
-            title: 'Massage',
+            url:"https://m.media-amazon.com/images/M/MV5BZjg2ZTM3OTgtY2ExMS00OGM4LTg3NDEtNjQ0MjJiZDFmMGFkXkEyXkFqcGdeQXVyMDY3OTcyOQ@@._V1_SX300.jpg",
+            title: 'Avengers: Endgame and the Latest Captain Marvel Outrage!!',
             width: '20%',
         },
         {
-            url: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400&q=80',
-            title: 'Hiking',
+            url:"https://m.media-amazon.com/images/M/MV5BNThjZDgwZTYtMjdmYy00ZmUyLTk4NTUtMzdjZmExODQ3ZmY4XkEyXkFqcGdeQXVyMjkzMDgyNTg@._V1_SX300.jpg",
+            title: 'Marvel Studios Avengers: Endgame LIVE Red Carpet World Premiere',
             width: '40%',
         },
         {
-            url: 'https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400&q=80',
-            title: 'Tour',
+            url:"https://m.media-amazon.com/images/M/MV5BNTQ1OWQzODktMTY3Zi00OTQxLWExOTYtZTNjZjY5ZTY4M2UyXkEyXkFqcGdeQXVyMTAzMzk0NjAy._V1_SX300.jpg",
+            title: 'Avengers Endgame: the Butt Plan',
             width: '38%',
         },
         {
-            url: 'https://images.unsplash.com/photo-1523309996740-d5315f9cc28b?auto=format&fit=crop&w=400&q=80',
-            title: 'Gastronomy',
+            url:"https://m.media-amazon.com/images/M/MV5BNThjZDgwZTYtMjdmYy00ZmUyLTk4NTUtMzdjZmExODQ3ZmY4XkEyXkFqcGdeQXVyMjkzMDgyNTg@._V1_SX300.jpg",
+            title: 'Marvel Studios Avengers: Endgame LIVE Red Carpet World Premiere',
             width: '38%',
         },
         {
-            url: 'https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=400&q=80',
-            title: 'Shopping',
+            url:"https://m.media-amazon.com/images/M/MV5BNTQ1OWQzODktMTY3Zi00OTQxLWExOTYtZTNjZjY5ZTY4M2UyXkEyXkFqcGdeQXVyMTAzMzk0NjAy._V1_SX300.jpg",
+            title: 'Avengers Endgame: the Butt Plan',
             width: '24%',
         },
-        {
-            url: 'https://images.unsplash.com/photo-1506941433945-99a2aa4bd50a?auto=format&fit=crop&w=400&q=80',
-            title: 'Walking',
-            width: '40%',
-        },
-        {
-            url: 'https://images.unsplash.com/photo-1533727937480-da3a97967e95?auto=format&fit=crop&w=400&q=80',
-            title: 'Fitness',
-            width: '20%',
-        },
-        {
-            url: 'https://images.unsplash.com/photo-1518136247453-74e7b5265980?auto=format&fit=crop&w=400&q=80',
-            title: 'Reading',
-            width: '40%',
-        },
-    ];
-
+    ];;
+        axios.request(options).then(res => {
+           const images =  res.data;  
+           
+           console.log(images)
+       }).catch(function (error) {
+           console.error(error);
+       });   
     return (
         <Container className={classes.root} component="section">
             <Typography variant="h4" marked="center" align="center" component="h2">
-                For all tastes and all desires
+            Para todos los gustos y todos los deseos
             </Typography>
             <div className={classes.images}>
                 {images.map((image) => (

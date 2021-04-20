@@ -4,56 +4,32 @@ import './App.css';
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Table,Button,Container,Modal,ModalBody,ModalHeader,FormGroup,ModalFooter} from 'reactstrap';
+import {
+  Route,
+  Switch
+} from 'react-router-dom';
+import AppAppBar from '../src/views/AppAppBar'; 
+import AppFooter from '../src/views/AppFooter';
+import Home from '../src/render/Home';
+import SignUp from '../src/render/SignUp';
+import ProductHero from '../src/views/ProductHero';
+import ProductValues from '../src/views/ProductValues';
+import ProductHowItWorks from '../src/views/ProductHowItWorks';
+import ProductCategories from '../src/views/ProductCategories';
+import ProductCTA from '../src/views/ProductCTA';
+import ProductSmokingHero from '../src/views/ProductSmokingHero';
 
-
-
-const data = [
-  {id:1,name: "daniel",apPat: "Perez"},
-  {id:2,name: "Alejandra",apPat: "Perez"},
-  {id:3,name: "Eduardo",apPat: "Perez"}
-  
-]; 
 
 class App extends React.Component {
-  state={
-    data: data
-  }
+
   render(){
     return (
-      <>
-        <Container>
-          <Button color="success">Insertar Nuevo Registro</Button>
-          <br />
-          <br />
-          <Table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Apellido Paterno</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                (
-                  this.state.data.map((elemento)=>(
-                    <tr>
-                      <td>{elemento.id}</td>
-                      <td>{elemento.name}</td>
-                      <td>{elemento.apPat}</td>
-                      <td>
-                        <Button color="primary">Editar</Button>
-                        <Button color="danger">Eliminar</Button>
-                      </td>
-                    </tr>
-                  ))
-                )
-              }
-            </tbody>
-          </Table>
-        </Container>
-      </>
+      <React.Fragment>
+            <ProductHero />
+            
+            <ProductCategories />
+            <AppFooter />
+      </React.Fragment>
     );
   }  
 }
